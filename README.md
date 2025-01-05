@@ -5,7 +5,7 @@ registration.
 ## Problem Statement
 The image registration is supposed to occur between a facial image with a neutral expression and one with an angry expression as follows:
 <p align="center">
-  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/input.jpg" align="center" width="650px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/input.jpg" align="center" width="600px"/>
 </p>
 
 The complex tissues under the skin make the skin mechanically anisotropic. However, the facial muscular system is responsible for the various facial expressions, especially the direction in which the muscle fibers dominate the movements from one facial expression to another.
@@ -32,7 +32,7 @@ component serves to connect all other components and implements the multiresolut
 of registration.
 
 <p align="center">
-  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/components.jpg" align="center" width="600px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/components.jpg" align="center" width="580px"/>
 </p>
 
 ## Results
@@ -40,8 +40,11 @@ The alignment of certain marked features serves as one of the criteria for evalu
 
 <p align="center">
   <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/vectorfield.jpg" align="center" width="600px"/>
-  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/landmarkss.jpg" align="center" width="600px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/landmarks.jpg" align="center" width="580px"/>
 </p>
+
+In fact, under the framework of [elastix](http://elastix.isi.uu.nl;), the anatomy-adaptive reuglarizing term
+performs well, achieving desired properties in both the trivial example and practical examples.
 
 
 
