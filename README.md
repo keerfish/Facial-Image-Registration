@@ -32,7 +32,15 @@ component serves to connect all other components and implements the multiresolut
 of registration.
 
 <p align="center">
-  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/components.jpg" align="center" width="650px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/components.jpg" align="center" width="600px"/>
+</p>
+
+## Results
+The alignment of certain marked features serves as one of the criteria for evaluating the registration results. The green stars in the target image correspond to the landmarks in the reference image, while the blue stars represent the transformed landmarks after image registration.
+
+<p align="center">
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/vectorfield.jpg" align="center" width="600px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/landmarkss.jpg" align="center" width="600px"/>
 </p>
 
 
