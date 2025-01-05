@@ -16,15 +16,25 @@ Instead of using the strain energy of the anisotropic elastic material as a regu
 
 A synthetic example is doing image registration between a black disc and a black oval. Since the deformation between the disc and oval is non-rigid. The main registration components utilized here are a B-Spline transformation, the SSD similarity metric, the bending energy penalty term, and the anatomy-adaptive regularizing term. The deformation from the black solid disc to the oval is illustrated below.
 <p align="center">
-  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/input.jpg" align="center" width="650px"/>
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/synthetic.jpg" align="center" width="650px"/>
 </p>
 
-
-
-Within the framework of elastix, we chose a reference image that comes
+## Implementation
+Within the framework of [elastix](http://elastix.isi.uu.nl;), we chose a reference image that comes
 from a face with a neutral expression, and a template image, which comes from the same
-face with an exaggerating expression. Under the anatomy-adaptive regularizing term, the
-transformation tends to follow the proper directions.
+face with an exaggerated expression. Under the anatomy-adaptive regularizing term, the
+transformation tends to follow the proper directions.[elastix](http://elastix.isi.uu.nl;) is based on the [ITK](https://www.itk-engineering.de/gesundheit/robotik/?gad_source=1&gclid=CjwKCAiA1eO7BhATEiwAm0Ee-IeUb_wk3ex-3PqmOxi2apt0lpIKNHlmqJnWK8TsS6s4NpAudrZ-iBoCsnIQAvD_BwE), so the code base is thoroughly tested.  
+
+When performing registration one carefully has to choose the several components. The
+components must be specified in the parameter file. In the following table, a list of the components
+that need to be specified is given, with some recommendations. The registration
+component serves to connect all other components and implements the multiresolution aspect
+of registration.
+
+<p align="center">
+  <img src="https://github.com/keerfish/Facial-Image-Registration/blob/main/imgs/components.jpg" align="center" width="650px"/>
+</p>
+
 
 
 
