@@ -1,6 +1,6 @@
 # Facial-Image-Registration
 Facial image registration is to find distributed correspondences between two facial images accurately. Solving the facial image registration problem is a challenging task. The main reason is that the problem is ill-posed. The anisotropic elasticity of tissues under the human skin and the fact that deformations of the skin under facial expressions are based on the anatomic structures under the skin are two further difficulties in solving facial image
-registration. In order to address these problems, an anisotropic elastic regularization model will be considered here during the facial image registration process.
+registration.
 
 The complex tissues under the skin make the skin mechanically anisotropic. But the facial
 muscular system is responsible for the various facial expressions, especially the direction in
