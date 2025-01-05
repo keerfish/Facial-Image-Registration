@@ -1,0 +1,228 @@
+
+  (FixedInternalImagePixelType "float")
+  (MovingInternalImagePixelType "float")
+
+
+//(FixedImageDimension 2)
+  (MovingImageDimension 2)
+
+  (UseDirectionCosines "true")
+
+// **************** Main Components **************************
+
+
+  (Registration "MultiMetricMultiResolutionRegistration")
+  (Interpolator "BSplineInterpolator")
+  (ResampleInterpolator "FinalBSplineInterpolator")
+  (Resampler "DefaultResampler")
+
+  (FixedImagePyramid "FixedRecursiveImagePyramid")
+  (MovingImagePyramid "MovingRecursiveImagePyramid")
+
+//(Optimizer "AdaptiveStochasticGradientDescent")
+  (Optimizer "QuasiNewtonLBFGS")
+//(Optimizer "StandardGradientDescent")
+  
+  (GenerateLineSearchIterations "true")
+
+  (Transform "BSplineTransform")
+  (BSplineTransformSplineOrder 3)
+
+//(Metric "AdvancedMeanSquares")
+//(Metric "AdvancedNormalizedCorrelation"  "TransformBendingEnergyPenalty")
+//(Metric "AdvancedMeanSquares" "TransformDirectionalStrainEnergyPenalty")
+//(Metric "AdvancedNormalizedCorrelation" "TransformRigidityPenalty")
+  (Metric "AdvancedNormalizedCorrelation" "TransformDirectionalStrainEnergyPenalty")
+       
+  (horizontalDirectionWeight 800000)
+  (verticalDirectionWeight 0.0001)
+          
+ 
+           
+  (Metric0Weight 25000000)
+  (Metric1Weight 0.008)
+  
+///D facial brown  800000 0.0001
+//(Metric0Weight 25000000)
+//(Metric1Weight 0.008)
+     
+///B facial brown
+//(Metric0Weight 110)
+//(Metric1Weight 85)
+   
+///B facial mouth
+//(Metric0Weight 110)
+//(Metric1Weight 100) 
+    
+///R facial brown
+//(Metric0Weight 110)
+//(Metric1Weight 0.4) 
+  
+///R facial mouth
+//(Metric0Weight 110)
+//(Metric1Weight 1)  
+    
+///D facial mouth 0.00001,0.8
+//(Metric0Weight 110)
+//(Metric1Weight 0.0012)
+     
+//the second example work good with 1,100,0.001，1000
+//the rotational example work good with 0.001，16000000 without vector field
+//work good da de tuo yuan    0.0001 100000
+      
+      
+////2New R   
+//(Metric0Weight 0.001)
+//(Metric1Weight 20000)
+      
+///2New B 
+//(Metric0Weight 0.001)
+//(Metric1Weight 11000000.0)
+   
+///2New D withvector field 0.0001 100
+//(Metric0Weight 0.001)
+//(Metric1Weight 1.0)
+    
+///2New D without vector field
+//(Metric0Weight 0.001)
+//(Metric1Weight 250000)
+   
+///New D withvector field 1 1
+//(Metric0Weight 0.001)
+//(Metric1Weight 70)
+///New D without vector field
+//(Metric0Weight 0.001)
+//(Metric1Weight 200000000)
+///New B 
+//(Metric0Weight 0.001)
+//(Metric1Weight 20000000)
+        
+///New R   
+//(Metric0Weight 0.001)
+//(Metric1Weight 20000)
+           
+//work good with Bending Penalty
+//(Metric0Weight 0.001)
+//(Metric1Weight 20000000.0)
+   
+//work good with Directional Penalty
+//(Metric0Weight 0.001)
+//(Metric1Weight 700.0)
+       
+//work good with Rigity Penalty
+//(Metric0Weight 0.001)
+//(Metric1Weight 7000.0)
+   
+//work good with Directional Penalty
+//(Metric0Weight 0.00001)
+//(Metric1Weight 200.0)
+
+  (UseOrthonormalityCondition "true")
+  (UsePropernessCondition "true") 
+
+//(OrthonormalityConditionWeight 1.0)
+//(PropernessConditionWeight 1.0)
+
+  (UseGeneralStrainPart1 "true")
+  (UseGeneralStrainPart2 "true")
+  (UsePrincipleStrainPart1 "true")
+  (UsePrincipleStrainPart2 "true")
+  (UsePrincipleStrainPart3 "true")
+
+//(UseMovingRigidityImage "true")
+//(MovingRigidityImageName "movingRigidityImage.png")
+
+  (UseHorizontalDirectionVectorImage "true")
+  (HorizontalDirectionVectorImageName "horizontalDirectionVectorImage.png")
+
+  (UseVerticalDirectionVectorImage "true")
+  (VerticalDirectionVectorImageName "verticalDirectionVectorImage.png")
+ 
+//(preSetParameter 1)
+
+  (GeneralStrainPartWeight 1.4)
+  (PrincipleStrainPartWeight -0.6)
+  
+ 
+  
+// Under working good with b image Metic1 10 1 9 and metruc1 5 5 25!!!  
+
+
+// Under working good with a image!!!
+// (horizontalDirectionWeight 1)
+// (verticalDirectionWeight 11)
+
+// ***************** Transformation **************************
+
+//(AutomaticScalesEstimation "true")
+
+  (AutomaticTransformInitialization "true")
+
+  (HowToCombineTransforms "Compose")
+
+  (FinalGridSpacingInVoxels 4 4)
+//(FinalGridSpacingInPhysicalUnits 5.0 5.0)
+  (GridSpacingSchedule 4 4 2 2 1 1 1 1)
+
+// ******************* Similarity measure *********************
+
+
+ (NumberOfHistogramBins 32)
+
+ (ErodeMask "false")
+
+// ******************** Multiresolution **********************
+
+
+  (NumberOfResolutions 4)
+
+
+// So, in 2D, with 4 resolutions, the following schedule is used:
+   (ImagePyramidSchedule 8 8  4 4 2 2  1 1 )
+// And in 3D:
+//(ImagePyramidSchedule 8 8 8  4 4 4  2 2 2  1 1 1 )
+// You can specify any schedule, for example:
+//(ImagePyramidSchedule 4 4  4 3  2 1  1 1 )
+// Make sure that the number of elements equals the number
+// of resolutions times the image dimension.
+
+// ******************* Optimizer ****************************
+
+
+  (MaximumNumberOfIterations 200)
+
+//(MaximumStepLength 1.0)
+
+// **************** Image sampling **********************
+
+  (NumberOfSpatialSamples 512)
+  
+  (NewSamplesEveryIteration "true")
+  
+//(ImageSampler "Random")
+
+  (ImageSampler "Full")
+
+//(ImageSampler "Grid")
+
+//(ImageSampler "RandomCoordinate")
+//(UseRandomSampleRegion "true")
+//(SampleRegionSize 50.0 50.0)
+//(NumberOfSpatialSamples 200)
+
+
+// ************* Interpolation and Resampling ****************
+
+  (BSplineInterpolationOrder 1)
+
+
+  (FinalBSplineInterpolationOrder 1)
+
+//Default pixel value for pixels that come from outside the picture:
+  (DefaultPixelValue 0.8)
+
+  (WriteResultImage "true")
+
+
+  (ResultImagePixelType "unsigned short")
+  (ResultImageFormat "png")
